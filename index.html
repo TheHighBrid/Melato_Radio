@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="description" content="Melato Sound Radio. Music, fashion, football and culture in rotation." />
+  <title>Melato Sound Radio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="masthead">
+      <a class="wordmark" href="/" aria-label="Melato Sound Radio home">MELATO SOUND</a>
+      <div class="live-badge" id="liveBadge" aria-live="polite">
+        <span class="live-dot" aria-hidden="true"></span>
+        <span id="liveLabel">PREVIEW</span>
+      </div>
+    </header>
+
+    <section class="player-card" aria-labelledby="stationTitle">
+      <div class="artwork-wrap">
+        <img id="artwork" class="artwork" alt="Current program artwork" hidden />
+        <div id="artworkFallback" class="artwork-fallback" aria-hidden="true">
+          <span>MSR</span>
+        </div>
+        <div class="signal" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+      </div>
+
+      <div class="player-copy">
+        <p class="eyebrow" id="programName">MELATO SOUND RADIO</p>
+        <h1 id="stationTitle">Live from the Melato frequency.</h1>
+        <p class="track-line">
+          <span id="trackTitle">Station setup in progress</span>
+          <span class="separator" aria-hidden="true">•</span>
+          <span id="artistName">Melato</span>
+        </p>
+
+        <div class="progress" aria-label="Track progress">
+          <div class="progress-track"><span id="progressFill"></span></div>
+          <div class="progress-times"><span id="elapsed">0:00</span><span id="duration">LIVE</span></div>
+        </div>
+
+        <div class="controls">
+          <button class="play-button" id="playButton" type="button" aria-label="Play Melato Sound Radio" disabled>
+            <span class="play-icon" aria-hidden="true"></span>
+          </button>
+          <div class="volume-wrap">
+            <button class="icon-button" id="muteButton" type="button" aria-label="Mute" disabled>VOL</button>
+            <input id="volume" type="range" min="0" max="1" step="0.05" value="0.85" aria-label="Volume" disabled />
+          </div>
+          <span class="status" id="statusText" role="status">Awaiting station endpoint</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="lower-grid">
+      <article class="panel on-air-panel">
+        <div class="panel-heading">
+          <p class="eyebrow">ON AIR</p>
+          <span id="listenerCount" class="listener-count"></span>
+        </div>
+        <h2 id="currentBlock">The Melato Frequency</h2>
+        <p id="currentBlockDescription">Music first. Fashion, football, culture and short transmissions between rotations.</p>
+      </article>
+
+      <article class="panel history-panel">
+        <div class="panel-heading">
+          <p class="eyebrow">RECENT</p>
+          <span class="muted">LAST TRANSMISSIONS</span>
+        </div>
+        <ol id="historyList" class="history-list">
+          <li><span>01</span><div><strong>Programming preview</strong><small>Melato Sound Radio</small></div></li>
+          <li><span>02</span><div><strong>12-hour launch window</strong><small>Phase 1</small></div></li>
+          <li><span>03</span><div><strong>AzuraCast connection pending</strong><small>Broadcast backend</small></div></li>
+        </ol>
+      </article>
+    </section>
+
+    <footer>
+      <p>MELATO SOUND RADIO <span>© <span id="year"></span> MELATO</span></p>
+      <p class="footer-note">MUSIC • FASHION • FOOTBALL • CULTURE</p>
+    </footer>
+  </main>
+
+  <audio id="radioAudio" preload="none"></audio>
+  <script src="./config.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
